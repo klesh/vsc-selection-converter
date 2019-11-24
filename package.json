@@ -3,6 +3,11 @@
 	"displayName": "Selection Converter",
 	"description": "Convert selected text by your custom script",
 	"version": "0.0.1",
+	"icon": "convert.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/klesh/vsc-selection-converter"
+	},
 	"engines": {
 		"vscode": "^1.40.0"
 	},

@@ -11,8 +11,3 @@ Convert selected text by your custom script.
 5. Select the text which you want to convert.
 6. Redo step 2, this time your custom converters shoud show up.
 7. Pick the one your want to run, and selected text will be replaced.
-
-
-# Credits
-
-Icon made by [photo3idea_studio](https://www.flaticon.com/authors/photo3idea-studio) from [www.flaticon.com](https://www.flaticon.com)

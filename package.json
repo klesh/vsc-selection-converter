@@ -3,7 +3,9 @@
 	"displayName": "Selection Converter",
 	"description": "Convert selected text by your custom script",
 	"version": "0.0.1",
+	"publisher": "kleshwong",
 	"icon": "convert.png",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/klesh/vsc-selection-converter"

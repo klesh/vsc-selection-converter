@@ -1,8 +1,8 @@
 
 /**
  * A converter takes in a chunk of input text, and spit out an arbitray chunk of text
- * 
- * @param {string} text 
+ *
+ * @param {string} text
  * @return {string}
  */
 function myConverter(text: string): string {

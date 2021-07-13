@@ -15,22 +15,22 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.convertSelectedText', async () => {
+	let disposable = vscode.commands.registerCommand('selection-converter.convertSelectedText', async () => {
 		// The code you place here will be executed every time your command is executed
 
-		if (!vscode.workspace.rootPath || !vscode.window.activeTextEditor) {
+		if (!vscode.workspace.workspaceFolders) {
+			return vscode.window.showErrorMessage(
+				"Convert Selection Text works on workspace only, please use [Open Folder] to create one"
+			);
+		}
+
+		if (!vscode.window.activeTextEditor) {
 			return;
 		}
 
-		const convertersPath =  path.join(
-			vscode.workspace.rootPath,
-			'.vscode',
-			'selection-convert.js'
-		);
-
-		// if (!await fs.promises.stat(convertersPath)) {
-		// 	await fs.promises.writeFile(await fs.promises.readFile(examplePath));
-		// }
+		const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+		const dotVscode = path.join(rootPath, '.vscode');
+		const convertersPath =  path.join(dotVscode, 'selection-convert.js');
 
 		const openConverters = async () => {
 			const document = await vscode.workspace.openTextDocument(convertersPath);
@@ -44,7 +44,8 @@ export function activate(context: vscode.ExtensionContext) {
 			converters = require(convertersPath);
 		} catch (e) {
 			if (!fs.existsSync(convertersPath)) {
-		 	  const examplePath = path.join(__dirname, 'selection-convert.js');
+				fs.mkdirSync(dotVscode, {recursive: true});
+		 		const examplePath = path.join(__dirname, 'selection-convert.js');
 				fs.copyFileSync(examplePath, convertersPath);
 				await openConverters();
 			} else {

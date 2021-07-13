@@ -75,7 +75,7 @@ export function activate(context: vscode.ExtensionContext) {
 			editor.edit(builder => {
 				try {
 					const result = converter(selectedText);
-					builder.replace(selection, result + '\n');
+					builder.replace(selection, result);
 				} catch (e) {
 					vscode.window.showErrorMessage(e);
 				}

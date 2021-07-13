@@ -2,7 +2,7 @@
   "name": "selection-converter",
 	"displayName": "Selection Converter",
 	"description": "Convert selected text by your custom script",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"publisher": "kleshwong",
 	"icon": "convert.png",
 	"license": "MIT",
